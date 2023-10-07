@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            background-image: url("C:\Users\rakes\OneDrive\Desktop\pro\templates\img.png"); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 100px;
+            padding: 100px;
+            margin-top:150px;
+            
+        }
+
+        center {
+            margin-top: 100px;
+            text-align:center;
+        }
+
+        h1 {
+            color: #333;
+            text-align:center;
+        }
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align:center;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align:center;
+            color: #333;
+        }
+        #text{
+            border: 1px solid black;
+            margin:0px 300px;
+
+            padding: 5px; 
+        }
+    </style>
+</head>
+<body style="background-image: url('https://bairesdev.mo.cloudinary.net/blog/2023/05/anC3A1lisis-de-sentimientos-opiniones-diferentes-varios-comentarios-de-los-clientes-buenas.jpg_s1024x1024wisk20cuZzouoq0Vke0RAHYPjMHsTgpuejmwg1WKqTZo83iOqY.jpg?tx=w_3840,q_auto'); background-repeat: no-repeat; background-size: 1500px 800px;">
+ 
+            <h1>Sentiment Analysis</h1>
+            <form method="POST" action="/predict">
+                <textarea name="text" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+                <input id="btn" type="submit" value="Analyze">
+                {% if prediction_text %}
+            <h2>Sentiment
+                <h2 id='text'>{{ prediction_text }}</h2>
+            </h2>
+            {% endif %}
+            </form>
+        <script>
+                var sent=document.getElementById('text')
+                if(sent.textContent=='Positive')
+                {
+                    sent.style.color='green';
+                    console.log(sent.textContent);
+                }
+                else if(sent.textContent=="Negative")
+                {
+                    sent.style.color='Red';
+                console.log(sent.textContent);
+                }
+        </script>
+        
+</body>
+</html>
